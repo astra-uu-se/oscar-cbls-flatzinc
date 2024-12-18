@@ -1,0 +1,15 @@
+#!/bin/sh
+JAVA=$(which java)
+if [ ! -x "${JAVA}" ]; then
+  echo "ERROR: java not found in PATH."
+  exit 1
+fi
+
+VERSION=$(java -version 2>&1 | head -1 | cut -d'"' -f2 | sed '/^1\./s///' | cut -d'.' -f1)
+if [ ! "$VERSION" -ge 8 ]; then
+  echo "ERROR: Running fzn-oscar-cbls requires java version 1.8."
+  exit 1
+fi
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+exec java -Xmx8G -jar "${SCRIPTPATH}/lib/oscar-fzn-cbls.jar" "$@"

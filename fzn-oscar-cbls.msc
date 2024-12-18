@@ -1,0 +1,14 @@
+{
+  "name": "fzn-oscar-cbls",
+  "version": "1.0",
+  "id": "org.oscar.fzn-oscar-cbls",
+  "executable": "./fzn-oscar-cbls",
+  "mznlib": "oscar_cbls",
+  "tags": ["ls", "cbls"],
+  "stdFlags": ["-s", "-v", "-a", "-f"],
+  "extraFlags": [
+    ["--useCp", "Use CP to reduce domain bounds", "bool", "true"],
+    ["-XallowCMG", "Experimental: allow compound move generation to be used", "bool", ""]
+    ["-XCPProbe", "Experimental: use CMG for probing", "bool", ""]
+  ]
+}
